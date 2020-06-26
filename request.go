@@ -5,7 +5,7 @@ package mid
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/ysicing/go-utils/uuid"
+	"github.com/ysicing/go-utils/exid"
 )
 
 const headerXRequestID = "X-Request-ID"
@@ -15,7 +15,7 @@ func RequestID() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		requestID := c.Request.Header.Get(headerXRequestID)
 		if requestID == "" {
-			requestID = uuid.GenUUID()
+			requestID = exid.GenUUID()
 		}
 		c.Set(headerXRequestID, requestID)
 		c.Writer.Header().Set(headerXRequestID, requestID)
