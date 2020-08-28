@@ -115,6 +115,8 @@ github.com/ysicing/go-utils v0.3.2 h1:JLoTRtVxG9KRcYahz8/fnIT9IGPZ+gYgcoGe1G8dmR
 github.com/ysicing/go-utils v0.3.2/go.mod h1:R75MgSxzoWEeOuKAUu8RZcF2BmaNXDB/qwnPNdZ3qxw=
 github.com/ysicing/logger v0.0.1 h1:IWVLIFJLCwwouJyjsGEEhdgPP1a5/kNKhVXanZo0DdI=
 github.com/ysicing/logger v0.0.1/go.mod h1:1ZmzlgXq1ls0+XvGnBVIoGmxn4DBfo3gPQBjLDuoARY=
+github.com/ysicing/logger v0.0.2 h1:jgKM+7YQLNhPoyIThR4ooHXJ0JbU3yojie1WgzKlME0=
+github.com/ysicing/logger v0.0.2/go.mod h1:1ZmzlgXq1ls0+XvGnBVIoGmxn4DBfo3gPQBjLDuoARY=
 go.uber.org/atomic v1.6.0 h1:Ezj3JGmsOnG1MoRWQkPBsKLe9DwWD9QeXzTRzzldNVk=
 go.uber.org/atomic v1.6.0/go.mod h1:sABNBOSYdrvTF6hTgEIbc7YasKWGhgEQZyfxyTvoXHQ=
 go.uber.org/multierr v1.5.0 h1:KCa4XfM8CWFCpxXRGok+Q0SS/0XBhMDbHHGABQLvD2A=
