@@ -8,15 +8,21 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/ysicing/ginmid"
+	"github.com/ysicing/logger"
 	"net/http"
 	"time"
 )
+
+func init() {
+	cfg := logger.LogConfig{Simple: false}
+	logger.InitLogger(&cfg)
+}
 
 func main() {
 
 	r := gin.New()
 
-	r.Use(mid.RequestID(), mid.PromMiddleware(nil))
+	r.Use(mid.RequestID(), mid.PromMiddleware(nil), mid.Log())
 
 	// Example ping request.
 	r.GET("/ping", func(c *gin.Context) {
@@ -32,5 +38,5 @@ func main() {
 	r.GET("/metrics", mid.PromHandler(promhttp.Handler()))
 
 	// Listen and Server in 0.0.0.0:8080
-	r.Run(":8080")
+	r.Run(":8081")
 }
