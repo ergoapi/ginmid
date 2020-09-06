@@ -5,9 +5,10 @@ package mid
 
 import (
 	"fmt"
+	"time"
+
 	"github.com/gin-gonic/gin"
 	"github.com/ysicing/logger"
-	"time"
 )
 
 const (
@@ -24,9 +25,9 @@ func Log() gin.HandlerFunc {
 		end := time.Now()
 		latency := end.Sub(start)
 		if len(c.Errors) > 0 || c.Writer.Status() >= 400 {
-			logger.Logger.Error(fmt.Sprintf(errLogFormat, GetRequestID(c), c.Writer.Status(), c.ClientIP(), c.Request.Method, path, latency, c.Errors.String()))
+			logger.Slog.Error(fmt.Sprintf(errLogFormat, GetRequestID(c), c.Writer.Status(), c.ClientIP(), c.Request.Method, path, latency, c.Errors.String()))
 		} else {
-			logger.Logger.Debug(fmt.Sprintf(logFormat, GetRequestID(c), c.Writer.Status(), c.ClientIP(), c.Request.Method, path, latency))
+			logger.Slog.Debug(fmt.Sprintf(logFormat, GetRequestID(c), c.Writer.Status(), c.ClientIP(), c.Request.Method, path, latency))
 		}
 	}
 }
