@@ -24,7 +24,7 @@ func Log() gin.HandlerFunc {
 		c.Next()
 		end := time.Now()
 		latency := end.Sub(start)
-		if len(c.Errors) > 0 || c.Writer.Status() >= 400 {
+		if len(c.Errors) > 0 || c.Writer.Status() >= 500 {
 			logger.Slog.Error(fmt.Sprintf(errLogFormat, GetRequestID(c), c.Writer.Status(), c.ClientIP(), c.Request.Method, path, latency, c.Errors.String()))
 		} else {
 			logger.Slog.Debug(fmt.Sprintf(logFormat, GetRequestID(c), c.Writer.Status(), c.ClientIP(), c.Request.Method, path, latency))
